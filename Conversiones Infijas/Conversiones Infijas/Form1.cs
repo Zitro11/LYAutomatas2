@@ -19,7 +19,7 @@ namespace Conversiones_Infijas
 
         //Elementos globales
 
-        //creamos una pila que es la que termina vacia y otra que es como termina al entrar el ultimo operador
+        //creamos una pila que es la que termina vacia y otra que muestra todo lo que entra
         Stack<char> pila = new Stack<char>();
         Stack<char> pila2 = new Stack<char>();
 

@@ -188,7 +188,7 @@ namespace Conversiones_Infijas
             // rdbPre
             // 
             this.rdbPre.AutoSize = true;
-            this.rdbPre.Location = new System.Drawing.Point(164, 101);
+            this.rdbPre.Location = new System.Drawing.Point(173, 101);
             this.rdbPre.Name = "rdbPre";
             this.rdbPre.Size = new System.Drawing.Size(54, 17);
             this.rdbPre.TabIndex = 3;

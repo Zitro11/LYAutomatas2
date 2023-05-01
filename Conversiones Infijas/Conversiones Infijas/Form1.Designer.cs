@@ -179,10 +179,10 @@ namespace Conversiones_Infijas
             this.rdbPos.Checked = true;
             this.rdbPos.Location = new System.Drawing.Point(50, 101);
             this.rdbPos.Name = "rdbPos";
-            this.rdbPos.Size = new System.Drawing.Size(56, 17);
+            this.rdbPos.Size = new System.Drawing.Size(59, 17);
             this.rdbPos.TabIndex = 4;
             this.rdbPos.TabStop = true;
-            this.rdbPos.Text = "Posfija";
+            this.rdbPos.Text = "Postfija";
             this.rdbPos.UseVisualStyleBackColor = true;
             // 
             // rdbPre

@@ -29,6 +29,7 @@ namespace Conversiones_Infijas
         //declaramos las variables para la expresion.
         string expresion;
         string expresionSinEsp;
+        bool vacia;
         bool validacion = true;
         string X = "";
 
@@ -40,11 +41,18 @@ namespace Conversiones_Infijas
             //damos valores a las variables
             expresion = txtExp.Text;
             expresionSinEsp = expresion.Replace(" ", "");
-            
+
+            //Validamos que no este vacia
+            ValidarVacia();
             //Validamos la expresion
             ValidarExpresion();
 
-            if (validacion == true)
+            if (vacia == true)
+            {
+                MessageBox.Show("Expresion Vacia", "Llenar expresion",
+                                MessageBoxButtons.OK, MessageBoxIcon.Question);
+            }
+            else if (validacion == true)
             {
                 //Mensaje que valida la expresion
                 MessageBox.Show("Expresion validada!", "Expresion Correcta", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
@@ -376,6 +384,17 @@ namespace Conversiones_Infijas
         public void Cerrar()
         {
             Application.Exit();
+        }
+        public void ValidarVacia()
+        {
+            if (expresionSinEsp == "")
+            {
+                vacia = true;
+            }
+            else
+            {
+                vacia = false;
+            }
         }
         public void ValidarExpresion()
         {               

@@ -24,7 +24,7 @@ namespace Conversiones_Infijas
         Stack<char> pila2 = new Stack<char>();
 
         //arreglo de operadores para identificar cuando se ingrese uno
-        char[] operadores = { '+', '-', '*', '/', '=', '(', ')' };
+        char[] operadores = { '+', '-', '*', '/', '=', '^', '(', ')' };
 
         //declaramos las variables para la expresion.
         string expresion;
@@ -61,10 +61,6 @@ namespace Conversiones_Infijas
                 // INFIJA A POSFIJA
                 if (rdbPos.Checked)
             {
-                /*damos valores a las variables
-                expresion = txtExp.Text;
-                expresionSinEsp = expresion.Replace(" ", "");
-                txtExp.Text = expresionSinEsp;*/
 
                 //Recorremos la expresion caracter por caracter
                 foreach (char item in expresionSinEsp)
@@ -134,7 +130,26 @@ namespace Conversiones_Infijas
 
                                 case '*':
                                 case '/':          
-                                    if (item == '(' || item == ')')
+                                    if (item == '(' || item == ')' || item == '^')
+                                    {
+                                        pila.Push(item);
+                                        Pila();
+                                        MostrarPila();
+                                    }
+                                    else
+                                    {
+                                       ultimoC = pila.Pop();
+                                       Pila();
+                                       MostrarPila();
+                                       txtResultado.Text = txtResultado.Text + ultimoC.ToString();
+                                       pila.Push(item);
+                                       Pila();
+                                       MostrarPila();
+                                    }
+                                    break;
+
+                                case '^':
+                                    if (item == '(' || item == ')' )
                                     {
                                         pila.Push(item);
                                         Pila();
@@ -196,11 +211,6 @@ namespace Conversiones_Infijas
                 // INFIJA A PREFIJA
                 else
             {
-                //damos valores a las variables
-                /*expresion = txtExp.Text;
-                expresionSinEsp = expresion.Replace(" ", "");
-                txtExp.Text = expresionSinEsp;*/
-
                 //capturamos en un arreglo la expresion para voltearla
                 char[] expInversa = expresionSinEsp.ToArray();
                 Array.Reverse(expInversa);
@@ -293,6 +303,25 @@ namespace Conversiones_Infijas
                                         MostrarPila();
                                     }
                                     break;
+
+                                case '^':
+                                        if (item == '(' || item == ')')
+                                        {
+                                            pila.Push(item);
+                                            Pila();
+                                            MostrarPila();
+                                        }
+                                        else
+                                        {
+                                            ultimoC = pila.Pop();
+                                            Pila();
+                                            MostrarPila();
+                                            txtResultado.Text = txtResultado.Text + ultimoC.ToString();
+                                            pila.Push(item);
+                                            Pila();
+                                            MostrarPila();
+                                        }
+                                        break;
 
                                 case ')':
                                     pila.Push(item);
@@ -502,3 +531,4 @@ namespace Conversiones_Infijas
         }
     }
 }
+
